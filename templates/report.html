@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Lost Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+<h2>Report Lost Item</h2>
+
+<div class="form-box">
+
+<form method="POST">
+
+<label>Item Name:</label>
+<input type="text" name="item_name" required>
+
+<label>Description:</label>
+<textarea name="description" required></textarea>
+
+<label>Contact Info:</label>
+<input type="text" name="contact" required>
+
+<label>Status:</label>
+<select name="status">
+  <option>Lost</option>
+  <option>Found</option>
+</select>
+
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+<br>
+<a href="/">Back to Home</a>
+</div>
+<img src="{{ url_for('static', filename='pngimg.com - ironman_PNG43.png') }}"
+     class="ironman">
+
+
+</body>
+</html>
