@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lost & Found - GLA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='pngkey.com-ironman-png-782052.png') }}" class="ironman">
+
+<div class="container">
+
+<h1>Lost and Found - GLA University</h1>
+<h2>Reported Lost Items</h2>
+
+{% for item in items %}
+<div class="item-card">
+
+  <strong>{{ item[1] }}</strong><br>
+  Description: {{ item[2] }}<br>
+  Contact: {{ item[3] }}<br><br>
+
+  {% set s = item[4] | trim | lower %}
+
+  {% if s == "lost" %}
+      <span class="badge lost">Lost</span>
+  {% elif s == "found" %}
+      <span class="badge found">Found</span>
+  {% else %}
+      <span class="badge unknown">Unknown</span>
+  {% endif %}
+
+  <br><br>
+
+  <a href="/delete/{{ item[0] }}" class="btn btn-delete">Delete</a>
+
+</div>
+{% endfor %}
+
+<br>
+<a href="/report">Report a Lost Item</a>
+
+</div>
+
+
+</body>
+</html>
